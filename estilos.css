@@ -28,13 +28,32 @@
 html {
   font-size: 62.4%;
   overflow: hidden;
- 
 }
 
 body {
   background: whitesmoke;
-  
-  
+}
+section {
+  min-height: 100vh;
+  padding: 0 9%;
+  padding-top: 7.5rem;
+  padding-bottom: 2rem;
+}
+.btn {
+  display: inline-block;
+  margin-top: 1rem;
+  padding: 0.8rem 3rem;
+  border-radius: 5rem;
+  background: var(--degradado);
+  font-size: 1.8rem;
+  color: white;
+  cursor: pointer;
+  box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.1);
+  transition: all 3s linear; 
+}
+/* para ver como se agranda MAS DETTALES  */
+.btn:hover {
+  transform: scale(1.1);
 }
 
 /* MENU */
@@ -44,13 +63,13 @@ header {
   left: 0;
   width: 100%;
   background-color: white;
-  box-shadow: 0 .5rem 1rem rgba(0, 0, 0, 0.1);
+  box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.1);
   padding: 2rem 9%;
   display: flex;
   align-items: center;
   justify-content: space-between;
   z-index: 1000;
-  position:fixed;
+  position: fixed;
 }
 
 header .logo {
@@ -84,6 +103,43 @@ header label {
   visibility: hidden;
   opacity: 0;
 }
+.inicio {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: url(/img/inicio_fondo.png) no-repeat;
+  background-size: cover;
+  background-position: center;
+}
+.inicio .image img {
+  width: 40vw;
+
+  animation: float 3s linear infinite;
+}
+@keyframes float {
+  0%,
+  100% {
+    transform: translateY(0rem);
+  }
+  50% {
+    transform: translateY(-3.5rem);
+  }
+}
+
+.inicio .content h3 {
+  font-size: 5.5rem;
+  color: #333;
+  text-transform: uppercase;
+}
+.inicio .content h3 span {
+  color: var(--limon);
+  text-transform: uppercase;
+}
+.inicio .content p {
+  font-size: 1.7rem;
+  color: #666;
+  padding: 1rem 0;
+}
 /* TRABAJAR EL RESPONSI CON MEDIA QUERY */
 
 @media (max-width: 1200px) {
@@ -110,6 +166,7 @@ header label {
     transform-origin: top;
     transform: scaleY(0);
     opacity: 0;
+    transition: .2s linear;
   }
   header .navbar a {
     display: block;
@@ -125,6 +182,23 @@ header label {
   header input:checked ~ label::before {
     content: "\f00d";
   }
+
+  .inicio {
+    flex-flow:column-reverse;
+  }
+
+  .inicio .image img {
+
+    width: 100%;
+  }
+
+  .inicio .content h3{
+    font-size: 3.6rem;
+
+  }
+  .inicio .content p{
+    font-size: 1.5rem;
+  }
 }
 
 /* opcion para mobiles */
@@ -132,10 +206,5 @@ header label {
   html {
     font-size: 49%;
   }
-}
-
-/* PAGINA PRINCIPAL */
-section{
-  margin-top: 16rem;
 }
 
